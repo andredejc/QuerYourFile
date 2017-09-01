@@ -1,0 +1,70 @@
+﻿.container-fluid {
+    padding: 1px 50px;
+}
+.bg-grey {
+    background-color: #f6f6f6;
+}
+.CodeMirror {
+    font-family: 'Lucida Console';
+    font-size: small;
+    outline: none;
+    margin: 5px 1px 5px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 174%;
+    height: 140px;
+}
+.button {    
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 1px 16px;
+}
+.buttonGO {
+    background-color: #4CAF50;
+    border-radius: 2px;
+}
+.buttonClear {
+    background-color: #809fff;
+    border-radius: 2px;    
+}
+.buttonSave {
+    background-color: #ff9900;
+    border-radius: 2px;    
+}
+.pull-right {
+    float: right;
+}
+div.container {
+    float: left;
+    width: 99%;
+    overflow-x: auto;
+    white-space: nowrap;    
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 3px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+    white-space: nowrap;
+}
+@media screen and (max-width: 768px) {
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
+}
