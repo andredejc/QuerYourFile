@@ -126,5 +126,49 @@ namespace QuerYourFile
             string htmlBody = html.ToString();
             return htmlBody;
         }
+
+        public void SalvaArquivo(char delimitador, DataTable queryDataTable)
+        {
+            string caminhoSalvaArquivo = @"C:\Temp\ArquivoTeste.txt";
+            int contadorDeColunas = 1;
+            int totalDeColunas = queryDataTable.Columns.Count;
+            StringBuilder montaArquivo = new StringBuilder();
+
+            foreach (DataColumn coluna in queryDataTable.Columns)
+            {
+                montaArquivo.Append(coluna.ColumnName);
+
+                if (contadorDeColunas != totalDeColunas)
+                {
+                    montaArquivo.Append(delimitador);
+                }
+
+                contadorDeColunas++;
+            }
+
+            montaArquivo.AppendLine();
+            contadorDeColunas = 1;
+
+            foreach (DataRow linhas in queryDataTable.Rows)
+            {
+                foreach (DataColumn coluna in queryDataTable.Columns)
+                {
+                    montaArquivo.Append(linhas[coluna.ColumnName]);
+
+                    if (contadorDeColunas != totalDeColunas)
+                    {
+                        montaArquivo.Append(delimitador);
+                    }
+
+                    contadorDeColunas++;
+                }
+
+                montaArquivo.AppendLine();
+                contadorDeColunas = 1;
+            }
+
+            File.WriteAllText(caminhoSalvaArquivo, montaArquivo.ToString());
+
+        }
     }
 }

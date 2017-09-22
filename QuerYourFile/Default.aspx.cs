@@ -24,7 +24,7 @@ namespace QuerYourFile
         }     
         
         protected void BtnGO_Click(object sender, EventArgs e)
-        {
+        {           
             string sql = code.Value;
             Regex regex = new Regex(@"\b(?i)(DROP|CREATE|ALTER|MODIFY|GRANT|REVOKE|REBUILD|REORGANIZE|RECOMPILE)");
             Match match = regex.Match(sql);
@@ -73,6 +73,7 @@ namespace QuerYourFile
                 }
                 else
                 {
+                    lblError.ForeColor = System.Drawing.Color.Red;
                     lblError.Text = ex.ToString();
                 }                
             }
@@ -100,8 +101,62 @@ namespace QuerYourFile
         }
 
         protected void BtnSave_Click(Object sender, EventArgs e)
-        {            
-            
+        {
+            string sql = code.Value;
+            Regex regex = new Regex(@"\b(?i)(DROP|CREATE|ALTER|MODIFY|GRANT|REVOKE|REBUILD|REORGANIZE|RECOMPILE)");
+            Match match = regex.Match(sql);
+
+            AcessoDados acessoDados = new AcessoDados();
+
+            try
+            {
+                if (sql != "")
+                {
+                    if (match.Success)
+                    {
+                        parseQuery = null;
+                    }
+                    else
+                    {
+                        TSql100Parser parser = new TSql100Parser(false);
+                        TSqlFragment fragment;
+
+                        IList<ParseError> errors;
+                        fragment = parser.Parse(new StringReader(sql), out errors);
+                        if (errors != null && errors.Count > 0)
+                        {
+                            List<string> errorList = new List<string>();
+                            foreach (var error in errors)
+                            {
+                                errorList.Add(error.Message);
+                                lblError.ForeColor = System.Drawing.Color.Red;
+                                lblError.Text = error.Message;
+                            }
+                        }
+                        else
+                        {
+                            DataTable dataTable = new DataTable();
+                            char delimitador = ';';
+                            string query = code.Value.ToString();
+                            dataTable = acessoDados.GetData(query);
+                            acessoDados.SalvaArquivo(delimitador, dataTable);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.ToString().Contains("Error Number:208"))
+                {
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                    lblError.Text = "Nome do arquivo inválido!";
+                }
+                else
+                {
+                    lblError.Text = ex.ToString();
+                }
+            }
+
         }
 
         protected void BtnUpLoadFile_Click(Object sender, EventArgs e)
