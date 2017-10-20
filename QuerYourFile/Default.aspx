@@ -32,47 +32,62 @@
 
 </head>    
 <body>    
-    <form id="form1" runat="server">
-        
-        <div class="container-fluid bg-grey">
-        <h2 class="text-left">QuerYourFile!</h2>
+    <form id="form1" class="form-inline" runat="server">        
+        <div class="container-fluid bg-grey">            
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">QuerYourFile!</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>                  
+                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+            
             <div class="row">			
                 <div class="col-sm-7">
-                    <div class="row">				
-                    </div>
+                    
                     <div>
                         <textarea class="form-control" rows="5" id="code" name="code" runat="server"></textarea> 
                         <div>
-                            <asp:Label ID="lblError" runat="server" Visible="true"></asp:Label>
-                            <asp:CustomValidator runat="server" id="validador" ControlToValidate="code" OnServerValidate="custom_Validador" ErrorMessage="Digite uma query valida!"></asp:CustomValidator>                                
+                            <asp:Label ID="lblError" runat="server" Visible="true"></asp:Label>                            
                         </div>                                    
                     </div>      
-                    <div>
-                        <asp:Button class="btn btn-success btn-xs" id="BtnGO" Font-Bold="true" Text="GO!" OnClick="BtnGO_Click" runat="server"/>     
-                        <asp:Button class="btn btn-warning btn-xs" id="BtnClear" Font-Bold="true" Text="Clear" OnClick="BtnClear_Click" runat="server"/>                                             
-                        <asp:Button CssClass="btn btn-info btn-xs" id="BtnLoadFile" Text="Select File" OnClick="BtnUpLoadFile_Click" runat="server" style="display: none" />
-                    </div>
-
-                    <br />                                                       
-
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="input-group">                                                         
-                                <span class="input-group-btn">                                
-                                    <asp:Button class="btn btn-info" id="Button1" Text="Salvar" OnClick="BtnSave_Click" runat="server"></asp:Button>
-                                </span>
-                                <input type="text" id="inpNomeArquivo" class="form-control" placeholder="Digite o nome do arquivo ..." runat="server" />
-                            </div>
-                        </div> 
-                    </div>
-                    
-                    <br /><br />  
-                    <div>
-                        <asp:Label ID="lblMsg" runat="server" style="font-family:'Consolas'" Text="Arquivo Carregado!" Visible="false" ForeColor="Green" /> 
-                        <asp:FileUpload ID="UpLoad" runat="server" style="font-family:'Consolas'" Font-Size="X-Small" onchange="javascript:UploadFile(this);" />                
-                    </div>
+                            <asp:Button class="btn btn-success btn-sm" id="BtnGO" Font-Bold="true" Text="Vai!" OnClick="BtnGO_Click" runat="server"/>     
+                            <asp:Button class="btn btn-warning btn-sm" id="BtnClear" Font-Bold="true" Text="Limpa" OnClick="BtnClear_Click" runat="server"/>                                             
 
-                    <br /><br />                  
+                            <div class="input-group">                                                                 
+                                <span class="input-group-btn">                                
+                                    <asp:Button class="btn btn-info btn-sm" id="Button2" Text="Salvar" OnClick="BtnSave_Click" runat="server"></asp:Button>
+                                </span>
+                                <input type="text" id="inpNomeArquivo" class="form-control input-sm" placeholder="Nome do arquivo com extensão:" runat="server" />
+                            </div>
+                            <div>
+                                <br />
+                                <label> [ Delimitador ] </label>
+                                <select class="form-control" id="sel1">
+                                    <option>( , )</option>
+                                    <option>( ; )</option>
+                                    <option>( tab )</option>                                
+                                </select>
+                            </div>
+                            
+                            <asp:Button CssClass="btn btn-info btn-sm" id="BtnLoadFile" Text="Select File" OnClick="BtnUpLoadFile_Click" runat="server" style="display: none" />                                                                                      
+                            
+                        </div>                     
+                    </div>
+                    <br />  
+                    <div>
+                        <asp:Label ID="lblMsg" runat="server" style="font-family:'Consolas'" Visible="false" ForeColor="Green" /> 
+                        <asp:FileUpload ID="UpLoad" runat="server" style="font-family:'Consolas'" Font-Size="X-Small" onchange="javascript:UploadFile(this);" />                
+                    </div>                                     
+                    <br /><br /> 
+                                  
                 </div>
             </div>
         </div>                   

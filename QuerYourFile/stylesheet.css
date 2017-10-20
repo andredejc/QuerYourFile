@@ -15,29 +15,7 @@
     width: 174%;
     height: 140px;
 }
-.button {    
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    padding: 1px 16px;
-}
-.buttonGO {
-    background-color: #4CAF50;
-    border-radius: 2px;
-}
-.buttonClear {
-    background-color: #809fff;
-    border-radius: 2px;    
-}
-.buttonSave {
-    background-color: #ff9900;
-    border-radius: 2px;    
-}
+
 .pull-right {
     float: right;
 }

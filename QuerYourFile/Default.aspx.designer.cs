@@ -40,15 +40,6 @@ namespace QuerYourFile {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// Controle validador.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validador;
-        
-        /// <summary>
         /// Controle BtnGO.
         /// </summary>
         /// <remarks>
@@ -67,22 +58,13 @@ namespace QuerYourFile {
         protected global::System.Web.UI.WebControls.Button BtnClear;
         
         /// <summary>
-        /// Controle BtnLoadFile.
+        /// Controle Button2.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLoadFile;
-        
-        /// <summary>
-        /// Controle Button1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
         /// Controle inpNomeArquivo.
@@ -92,6 +74,15 @@ namespace QuerYourFile {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpNomeArquivo;
+        
+        /// <summary>
+        /// Controle BtnLoadFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnLoadFile;
         
         /// <summary>
         /// Controle lblMsg.
