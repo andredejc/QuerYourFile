@@ -85,14 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="script.js" />
-    <Content Include="stylesheet.css" />
+    <Content Include="index.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arquivo.cs" />
-    <Compile Include="IntegracaoBaseDeDados.cs" />
-    <Compile Include="ManipulaArquivo.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -100,8 +96,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IntegracaoBaseDeDados.cs" />
+    <Compile Include="ManipulaArquivo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringDeConexao.cs" />
+    <Compile Include="TabelaHTML.cs" />
+    <Compile Include="URLdeConexao.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

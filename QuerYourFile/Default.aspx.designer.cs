@@ -22,13 +22,31 @@ namespace QuerYourFile {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Controle code.
+        /// Controle editorSql.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea code;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea editorSql;
+        
+        /// <summary>
+        /// Controle btn_Vai.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Vai;
+        
+        /// <summary>
+        /// Controle btn_limpa.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_limpa;
         
         /// <summary>
         /// Controle lblError.
@@ -40,67 +58,85 @@ namespace QuerYourFile {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// Controle BtnGO.
+        /// Controle sel_TemCabecalho.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnGO;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sel_TemCabecalho;
         
         /// <summary>
-        /// Controle BtnClear.
+        /// Controle sel_delimitadorEntrada.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnClear;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sel_delimitadorEntrada;
         
         /// <summary>
-        /// Controle Button2.
+        /// Controle UploadDeArquivos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.FileUpload UploadDeArquivos;
         
         /// <summary>
-        /// Controle inpNomeArquivo.
+        /// Controle BtnUploadArquivo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNomeArquivo;
+        protected global::System.Web.UI.WebControls.Button BtnUploadArquivo;
         
         /// <summary>
-        /// Controle BtnLoadFile.
+        /// Controle StatusLabel.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnLoadFile;
+        protected global::System.Web.UI.WebControls.Label StatusLabel;
         
         /// <summary>
-        /// Controle lblMsg.
+        /// Controle btn_Salva.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
+        protected global::System.Web.UI.WebControls.Button btn_Salva;
         
         /// <summary>
-        /// Controle UpLoad.
+        /// Controle inp_nomeArquivo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload UpLoad;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inp_nomeArquivo;
+        
+        /// <summary>
+        /// Controle listaTipoArquivoSaida.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listaTipoArquivoSaida;
+        
+        /// <summary>
+        /// Controle listaDelimitadorSaida.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listaDelimitadorSaida;
         
         /// <summary>
         /// Controle divHtml.

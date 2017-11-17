@@ -1,0 +1,97 @@
+﻿* {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+div.tabela {
+    overflow-x: auto;
+    top: 360px; 
+    left: 12px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px 10px;
+    margin: 10px 0px 4px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    resize: none;
+}
+
+div.controles {
+    padding: 0px 0px 13px 0px;
+}
+
+fieldset {
+    color: dimgrey;
+    background-color: white;
+    margin: 5px 5px 10px 0px;
+}
+
+button {
+    width: 55px;
+}
+
+#up_Arquivo {
+    margin: 10px 5px 0px 0px;
+}
+
+#inp_nomeArquivo {
+    width: 300px;
+    height: 16px;
+}
+
+select {
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 3px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+    white-space: nowrap;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+    li a {
+        display: block;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        li a:hover {
+            background-color: #111;
+        }
