@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
+﻿using System.Data;
 using System.Text;
-using System.Web;
 
 namespace QuerYourFile {
     public class TabelaHTML {
-
+        /// <summary>
+        /// Exporta o datatable para tabela HTML.
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         public string ExportaTabelaHtml(DataTable dataTable) {
             if (dataTable != null) {
                 StringBuilder html = new StringBuilder();
@@ -34,7 +34,7 @@ namespace QuerYourFile {
                 return html.ToString();
             }
             else {
-                return "";
+                return Resources.ResourceFile.stringVazia;
             }
         }
     }

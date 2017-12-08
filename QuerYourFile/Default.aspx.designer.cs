@@ -40,13 +40,13 @@ namespace QuerYourFile {
         protected global::System.Web.UI.WebControls.Button btn_Vai;
         
         /// <summary>
-        /// Controle btn_limpa.
+        /// Controle btn_Limpa.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_limpa;
+        protected global::System.Web.UI.WebControls.Button btn_Limpa;
         
         /// <summary>
         /// Controle lblError.
@@ -58,13 +58,40 @@ namespace QuerYourFile {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
+        /// Controle leg_ArquivoEntrada.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl leg_ArquivoEntrada;
+        
+        /// <summary>
+        /// Controle lbl_Cabecalho.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Cabecalho;
+        
+        /// <summary>
         /// Controle sel_TemCabecalho.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect sel_TemCabecalho;
+        protected global::System.Web.UI.WebControls.DropDownList sel_TemCabecalho;
+        
+        /// <summary>
+        /// Controle lbl_DelimitadorEntrada.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_DelimitadorEntrada;
         
         /// <summary>
         /// Controle sel_delimitadorEntrada.
@@ -73,7 +100,7 @@ namespace QuerYourFile {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect sel_delimitadorEntrada;
+        protected global::System.Web.UI.WebControls.DropDownList sel_delimitadorEntrada;
         
         /// <summary>
         /// Controle UploadDeArquivos.
@@ -103,6 +130,15 @@ namespace QuerYourFile {
         protected global::System.Web.UI.WebControls.Label StatusLabel;
         
         /// <summary>
+        /// Controle leg_ArquivoSaida.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl leg_ArquivoSaida;
+        
+        /// <summary>
         /// Controle btn_Salva.
         /// </summary>
         /// <remarks>
@@ -121,6 +157,15 @@ namespace QuerYourFile {
         protected global::System.Web.UI.HtmlControls.HtmlInputText inp_nomeArquivo;
         
         /// <summary>
+        /// Controle lbl_TipoSaida.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_TipoSaida;
+        
+        /// <summary>
         /// Controle listaTipoArquivoSaida.
         /// </summary>
         /// <remarks>
@@ -128,6 +173,15 @@ namespace QuerYourFile {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList listaTipoArquivoSaida;
+        
+        /// <summary>
+        /// Controle lbl_DelimitadorSaida.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_DelimitadorSaida;
         
         /// <summary>
         /// Controle listaDelimitadorSaida.

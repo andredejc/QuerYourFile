@@ -1,57 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Web;
+using System.Text.RegularExpressions;
 
 namespace QuerYourFile {
     public class IntegracaoBaseDeDados {
-
-        private SqlConnection RetornaConexaoBase() {
-            SqlConnection sqlConnection = new SqlConnection(URLdeConexao.GetURL());
-            sqlConnection.Open();
-            return sqlConnection;
-        }
-
+        /// <summary>
+        /// Executa uma instração SQL.
+        /// </summary>
+        /// <param name="instrucaoSql"></param>
         public void ExecutaInstrucaoSql(string instrucaoSql) {
-            using (SqlCommand sqlCommand = new SqlCommand(instrucaoSql)) {
-                sqlCommand.Connection = RetornaConexaoBase();
-                sqlCommand.ExecuteNonQuery();
-            }
+            using (SqlConnection sqlConnection = new SqlConnection(URLdeConexao.GetURL())) {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(instrucaoSql)) {
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }            
         }
-
+        /// <summary>
+        /// Executa uma instrução SQL e retorna um inteiro que representa a quantidade de registros manipulados pela instrução.
+        /// </summary>
+        /// <param name="instrucaoSql"></param>
+        /// <returns></returns>
         public int ExecutaInstrucaoSqlRetornaDado(string instrucaoSql) {
             int retornaInteiro;
-            using (SqlCommand sqlCommand = new SqlCommand(instrucaoSql)) {
-                sqlCommand.CommandType = CommandType.Text;
-                sqlCommand.Connection = RetornaConexaoBase();
-                retornaInteiro = (int)sqlCommand.ExecuteScalar();
-            }
+            using (SqlConnection sqlConnection = new SqlConnection(URLdeConexao.GetURL())) {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(instrucaoSql)) {
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.Connection = sqlConnection;
+                    retornaInteiro = (int)sqlCommand.ExecuteScalar();
+                }
+            }            
             return retornaInteiro;
         }     
-
+        /// <summary>
+        /// Insere os dados na tabela passada como parâmetro.
+        /// </summary>
+        /// <param name="tabela"></param>
+        /// <param name="dataTable"></param>
         public void InsereDados(string tabela, DataTable dataTable) {
             using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(URLdeConexao.GetURL())) {
                 sqlBulkCopy.DestinationTableName = tabela;
                 sqlBulkCopy.WriteToServer(dataTable);
             }
         }
-
+        /// <summary>
+        /// Retorna os dados de uma instrução SQL.
+        /// </summary>
+        /// <param name="instrucaoSql"></param>
+        /// <returns></returns>
         public DataTable RetornaDadosDaConsulta(string instrucaoSql) {
-            using (SqlCommand sqlCommand = new SqlCommand(instrucaoSql)) {
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter()) {
-                    sqlCommand.Connection = RetornaConexaoBase();
-                    sqlDataAdapter.SelectCommand = sqlCommand;
-                    using (DataTable dataTable = new DataTable()) {
-                        sqlDataAdapter.Fill(dataTable);
-                        return dataTable;
+            using (SqlConnection sqlConnection = new SqlConnection(URLdeConexao.GetURL())) {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(instrucaoSql)) {
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter()) {
+                        sqlCommand.Connection = sqlConnection;
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        using (DataTable dataTable = new DataTable()) {
+                            sqlDataAdapter.Fill(dataTable);
+                            return dataTable;
+                        }
                     }
                 }
-            }
+            }            
         }
-
+        /// <summary>
+        /// Exclui da base de dados a tabela passada como parâmetro.
+        /// </summary>
+        /// <param name="nomeTabela"></param>
         public void LimpaBase(string nomeTabela) {
             string schema = "dbo";
             string schemaNomeTabela = "[" + schema + "].[" + nomeTabela + "]";
@@ -61,10 +78,36 @@ namespace QuerYourFile {
                                     ON a.schema_id = b.schema_id 
                                  WHERE b.name = '" + schema + "' AND a.name = '" + nomeTabela + "') BEGIN DROP TABLE " + schemaNomeTabela + " END ";
 
-            using (SqlCommand sqlCommand = new SqlCommand(dropTabelaDaBase.ToString())) {
-                sqlCommand.Connection = RetornaConexaoBase();
-                sqlCommand.ExecuteNonQuery();
+            using (SqlConnection sqlConnection = new SqlConnection(URLdeConexao.GetURL())) {
+                sqlConnection.Open();
+                using (SqlCommand sqlCommand = new SqlCommand(dropTabelaDaBase.ToString())) {
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }            
+        }
+        /// <summary>
+        /// Valida se a instrução SQL passada como parâmetro é uma consulta válida.
+        /// </summary>
+        /// <param name="instrucaoSql"></param>
+        /// <returns></returns>
+        public Match ValidaInstrucaoSql(string instrucaoSql) {
+            Regex regex = new Regex(@"\b(?i)(DROP|CREATE|ALTER|MODIFY|GRANT|REVOKE|REBUILD|REORGANIZE|RECOMPILE)");
+            Match match = regex.Match(instrucaoSql);
+            return match;
+        } 
+        /// <summary>
+        /// Faz a validação da instrução no editor.
+        /// </summary>
+        /// <param name="editorSql"></param>
+        /// <returns></returns>
+        public bool ValidaEditorSql(string editorSql) {
+            if (editorSql != Resources.ResourceFile.stringVazia && !ValidaInstrucaoSql(editorSql).Success) {
+                return true;
+            } else {
+                return false;
             }
+
         }
 
     }
