@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web.Configuration;
 
 namespace QuerYourFile {
-    public class URLdeConexao {
-        public static string urlDeConexao = @"Password=P@ssw0rd;Persist Security Info=True;User ID=sa;Data Source=localhost;Initial Catalog=Testes;";
-        public static string GetURL() {
+    sealed class URLdeConexao {
+        /// <summary>
+        /// Definição do padrão Singleton:
+        /// </summary>
+        private static readonly URLdeConexao instancia = new URLdeConexao();
+        private string urlDeConexao;
+        private URLdeConexao() {
+            urlDeConexao = WebConfigurationManager.ConnectionStrings[Resources.ResourceFile.urlDeConexao].ConnectionString;
+        }
+        public static URLdeConexao GetInstancia() {
+            return instancia;
+        }
+
+        /// <summary>
+        /// Retorna a URL de conexão com a base de dados
+        /// </summary>
+        /// <returns></returns>
+        public string GetURL() {
             return urlDeConexao;
         }
     }
