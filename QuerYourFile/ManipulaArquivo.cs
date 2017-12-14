@@ -76,7 +76,7 @@ namespace QuerYourFile {
         }
 
         /// <summary>
-        /// Valida se o delimitador passado é válido, comparando entre as cinco primeiras linhas do arquivo:
+        /// Valida se o delimitador passado como parâmetro é válido é válido, comparando entre as cinco primeiras linhas do arquivo:
         /// </summary>
         /// <param name="caminhoArquivo"></param>
         /// <param name="delimitador"></param>
